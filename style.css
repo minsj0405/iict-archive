@@ -1,0 +1,145 @@
+/* ===== 색 정하기 =====
+   한 곳에 모아두면 나중에 색만 바꿔도 전체 분위기가 바뀐다 */
+:root {
+  --bg: #fdf6ef;        /* 배경 - 아주 연한 살구색 */
+  --ink: #3b2f2a;       /* 본문 글자색 */
+  --soft: #8a7a70;      /* 설명 글자색 (조금 흐리게) */
+  --line: #ecdfd3;      /* 칸을 나누는 선 */
+  --card: #fffaf5;      /* 목록 한 칸의 배경 */
+  --accent: #d2673f;    /* 포인트 색 - 노을 주황 */
+}
+
+/* ===== 공통 ===== */
+* {
+  box-sizing: border-box;   /* 테두리와 여백을 크기 안에 포함시킨다 */
+}
+
+body {
+  margin: 0;
+  padding: 0 16px 64px;     /* 좌우 16px은 휴대폰에서 글자가 화면에 붙지 않게 */
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ===== 머리말 ===== */
+header {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 72px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* 제목 아래 짧은 주황색 밑줄 */
+h1::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 3px;
+  margin-top: 14px;
+  background: var(--accent);
+}
+
+.intro {
+  margin: 18px 0 0;
+  color: var(--soft);
+  font-size: 15px;
+}
+
+/* ===== 과제 목록 ===== */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;      /* 기본 점 없애기 */
+  margin: 32px 0 0;
+  padding: 0;
+}
+
+.list li {
+  margin-bottom: 12px;
+}
+
+/* 링크 한 칸을 카드처럼 보이게 */
+.list a {
+  display: flex;             /* 번호와 내용을 가로로 나란히 */
+  gap: 18px;
+  align-items: flex-start;
+  padding: 22px 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  text-decoration: none;     /* 링크 밑줄 없애기 */
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+/* 마우스를 올렸을 때 */
+.list a:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.num {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding-top: 4px;
+}
+
+.body {
+  display: block;
+}
+
+.title {
+  display: block;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.desc {
+  display: block;
+  margin-top: 6px;
+  color: var(--soft);
+  font-size: 14.5px;
+}
+
+/* ===== 꼬리말 ===== */
+footer {
+  max-width: 680px;
+  margin: 48px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 13px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ===== 화면이 좁을 때 (휴대폰) ===== */
+@media (max-width: 480px) {
+  header {
+    padding: 48px 0 32px;
+  }
+  h1 {
+    font-size: 27px;
+  }
+  .list a {
+    padding: 18px 18px;
+    gap: 14px;
+  }
+}
